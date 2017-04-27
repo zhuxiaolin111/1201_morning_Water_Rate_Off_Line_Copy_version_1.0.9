@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ddd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="编号:"/>
+                <TextView
+                    android:id="@+id/bianhao"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="姓名:"/>
+                <TextView
+                    android:id="@+id/xingming"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="电话:"/>
+                <TextView
+                    android:id="@+id/dianhua"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="地址:"/>
+                <TextView
+                    android:id="@+id/dizhi"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="用户类别:"/>
+                <TextView
+                    android:id="@+id/yonghuleibie"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="表簿类别:"/>
+                <TextView
+                    android:id="@+id/biaobuleibie"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="计量方式:"/>
+                <TextView
+                    android:id="@+id/jiliangfangshi"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="人口数:"/>
+                <TextView
+                    android:id="@+id/renkoushu"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="用户状态:"/>
+                <TextView
+                    android:id="@+id/yonghuzhuangtai"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="抄表员:"/>
+                <TextView
+                    android:id="@+id/chaobiaoyuan"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="卡号:"/>
+                <TextView
+                    android:id="@+id/kahao"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="营业所:"/>
+                <TextView
+                    android:id="@+id/yingyesuo"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="IC用户:"/>
+                <TextView
+                    android:id="@+id/ic_yonghu"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ddd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="预存金额:"/>
+                <TextView
+                    android:id="@+id/yucunjine"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="本月水费:"/>
+                <TextView
+                    android:id="@+id/benyueshuifei"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="销账金额:"/>
+                <TextView
+                    android:id="@+id/xiaozhangjine"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="欠费金额:"/>
+                <TextView
+                    android:id="@+id/qianfeijine"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#ddd"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="表1:"/>
+                <TextView
+                    android:id="@+id/biao1"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="表2:"/>
+                <TextView
+                    android:id="@+id/biao2"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <TextView
+                    style="@style/xiangxiyonghuxinxi_left_list"
+                    android:text="表3:"/>
+                <TextView
+                    android:id="@+id/biao3"
+                    style="@style/xiangxiyonghuxinxi_right_list"
+                    android:text="测试"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <View
+                    style="@style/line_style"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

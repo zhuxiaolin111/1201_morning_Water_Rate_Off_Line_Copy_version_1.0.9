@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/weichao_frag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/weichao"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未抄"/>
+
+            <View
+                android:id="@+id/view_weichao"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="#000"
+                >
+            </View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yichao_frag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/yichao"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="已抄"/>
+
+            <View
+                android:id="@+id/view_yichao"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="#000"
+                >
+            </View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quanbu_frag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/quanbu"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全部"/>
+
+            <View
+                android:id="@+id/view_quanbu"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="#000"
+                >
+            </View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/qianfei_frag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/qianfei"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="欠费"/>
+
+            <View
+                android:id="@+id/view_qianfei"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="#000"
+                >
+
+            </View>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/xuanzechaobiaofanwei"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+    </RelativeLayout>
+
+</LinearLayout>
+

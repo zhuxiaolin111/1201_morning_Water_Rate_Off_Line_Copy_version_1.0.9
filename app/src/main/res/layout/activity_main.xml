@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.northsoft.water_rate_off_line_copy.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/downloading2"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载用户信息...."
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/downloading3"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载用户详细信息...."
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/downloading4"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载用户水表数据...."
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/downloading5"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载用户账单列表...."
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/downloading6"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载最近缴费列表...."
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/downloading8"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下载用户水量数据...."
+                android:textSize="20sp"/>
+
+        </TableRow>
+    </TableLayout>
+
+
+        <!--
+            <TextView
+                android:id="@+id/downloading7"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="正在下载七级数据......"
+                android:textSize="20sp"/>
+        -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/dianji_begin_btn"
+            style="@style/jichu_wenzi_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style"
+            android:text="点击开始"/>
+
+        <Button
+            android:id="@+id/dianji_tijiao_btn"
+            style="@style/jichu_wenzi_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg2"
+            android:text="提交抄表数据"/>
+
+        <Button
+            android:id="@+id/dianji_tijiaoinfo_btn"
+            style="@style/jichu_wenzi_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg2"
+            android:text="提交修改数据"/>
+
+    </LinearLayout>
+
+</LinearLayout>

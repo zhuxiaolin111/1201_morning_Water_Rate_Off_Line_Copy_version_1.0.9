@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#eee"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#e7e8ea"
+                    android:gravity="center"
+                    android:text="表号"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+
+                    android:layout_weight="1"
+                    android:background="#e7e8ea"
+                    android:gravity="center"
+                    android:text="位置"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#e7e8ea"
+                    android:gravity="center"
+                    android:text="起数"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#e7e8ea"
+                    android:gravity="center"
+                    android:text="止数"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#e7e8ea"
+                    android:gravity="center"
+                    android:text="水量"
+                    android:textSize="25dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                >
+
+                <TextView
+                    android:id="@+id/id_biaohao"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_weizhi"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_qishu"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="起数"
+                    android:textSize="25dp"/>
+
+                <EditText
+                    android:id="@+id/id_zhishu"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:numeric="integer"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/id_shuliang"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="水量"
+                    android:textSize="25dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                >
+
+                <TextView
+                    android:id="@+id/id_biaohao1"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_weizhi1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_qishu1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+
+                <EditText
+                    android:id="@+id/id_zhishu1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:numeric="integer"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/id_shuliang1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                >
+
+                <TextView
+                    android:id="@+id/id_biaohao2"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_weizhi2"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_qishu2"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+
+                <EditText
+                    android:id="@+id/id_zhishu2"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:numeric="integer"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/id_shuliang2"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff">
+
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总水量:"/>
+
+            <TextView
+                android:id="@+id/id_zhongshuiliang"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上次抄表日期:"/>
+
+            <TextView
+                android:id="@+id/id_riqi"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="前期预存金额:"/>
+
+            <TextView
+                android:id="@+id/id_jine"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预计可购:"/>
+
+            <TextView
+                android:id="@+id/id_kegou"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="吨"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/id_baocun1"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_style"
+        android:text="保存数据"
+        android:textSize="20sp"/>
+
+
+</LinearLayout>

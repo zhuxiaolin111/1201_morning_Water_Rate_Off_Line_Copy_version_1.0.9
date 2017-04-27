@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">离线抄表</string>
+    <!--每个接口的请求头-->
+    <string name="jiekou1_head">http://qy.eheat.com.cn/waterservice/service.ashx?</string>
+    <string name="jiekou2_head">http://qy.eheat.com.cn/waterservice/service.ashx?</string>
+    <string name="jiekou3_head">http://qy.eheat.com.cn/waterservice/service.ashx?</string>
+    <string name="jiekou4_head">http://qy.eheat.com.cn/waterservice/service.ashx</string>
+    <string name="jiekou4_1_head">http://qy.eheat.com.cn/waterservice/service.ashx</string>
+    <string name="jiekou5_head">http://qy.eheat.com.cn/waterservice/service.ashx</string>
+    <string name="jiekou6_1_head">http://tltx.eheat.com.cn/handler/tltxwaterservice.ashx</string>
+    <string name="jiekou6_2_head">http://qy.eheat.com.cn/waterservice/service.ashx?</string>
+    <string name="接口">http://tltx.eheat.com.cn/waterservice/service.ashx?</string>
+</resources>

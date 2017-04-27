@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="水表序号"/>
+
+            <TextView
+                android:id="@+id/shuibiaoxuhao"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试数据"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="用水性质"/>
+
+            <TextView
+                android:id="@+id/yongshuixingzhi"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试性质"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="起数"/>
+
+            <TextView
+                android:id="@+id/qishu"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试起数"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="止数"/>
+
+            <TextView
+                android:id="@+id/zhishu"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试止数"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="水量"/>
+
+            <TextView
+                android:id="@+id/shuiliang"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试水量"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="排污费"/>
+
+            <TextView
+                android:id="@+id/paiwufei"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试排污费"
+                android:textColor="#f00"/>
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="#f00"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="水费"/>
+
+            <TextView
+                android:id="@+id/shuifei"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试水费"
+                android:textColor="#f00"/>
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="#f00"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/xiangxiyonghuxinxi_left_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="合计金额"/>
+
+            <TextView
+                android:id="@+id/hejijine"
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试合计金额"
+                android:textColor="#f00"/>
+
+            <TextView
+                style="@style/jichu_wenzi_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="#f00"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_style"/>
+    </LinearLayout>
+
+
+</LinearLayout>
