@@ -1,7 +1,10 @@
 package com.northsoft.water_rate_off_line_copy;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -70,6 +73,7 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
     //装在这首页所有表簿编号的list
     private ArrayList<String> first_page_id_list;
     private ArrayList<String> loginUserID_list;
+    Context context;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -101,8 +105,12 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.login_layout);
-
+        //  int i=getVersionCode(context);
+        //  login1();
         initView();
+        context = this.getApplication();
+        UpdateManager updateManager = new UpdateManager(context);
+        updateManager.checkUpdate();
         tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
           /*
       * 唯一的设备ID：
@@ -307,5 +315,69 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
         myDialog.setIndeterminate(false); // 设置进度条是否为不明确
         myDialog.setCancelable(true); // 设置进度条是否按返回键取消
         myDialog.show(); // 显示进度条
+    }
+
+    public void login1() {
+
+        final OkHttpClient mOkHttpClient = new OkHttpClient();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RequestBody formbody = new FormBody.Builder()
+                        .add("method", "getappversion")
+                        .build();
+                Request request = new Request.Builder()
+                        //.url("http://syhf.eheat.com.cn/weixinservice.ashx")
+                        //正式
+                        .url("http://tltx.eheat.com.cn/handler/tltxwaterservice.ashx")
+                        .post(formbody)
+                        .build();
+                okhttp3.Call call = mOkHttpClient.newCall(request);
+                try {
+                    Response response = call.execute();
+
+                    userid_str = response.body().string();
+
+                    try {
+                        JSONObject jsonObject2 = new JSONObject(userid_str);
+                        loginUserID_list.add(jsonObject2.getString("userid"));
+                        appli.setLogin_id_str_list(loginUserID_list);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Message message = new Message();
+                message.what = 1;
+                handler.sendEmptyMessage(1);
+            }
+        }).start();
+    }
+
+    /**
+     * 获取软件版本号
+     *
+     * @param context
+     * @return
+     */
+    private int getVersionCode(Context context) {
+        PackageManager packageManager;
+        PackageInfo info = null;
+        packageManager = this.getPackageManager();
+        try {
+            info = packageManager.getPackageInfo("com.northsoft.water_rate_off_line_copy", 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        int versionCode = info.versionCode;
+    /*    try {
+            // 获取软件版本号，对应AndroidManifest.xml下android:versionCode
+            versionCode = context.getPackageManager().getPackageInfo("com.northsoft.water_rate_off_line_copy", 0).versionCode;
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }*/
+        return versionCode;
     }
 }

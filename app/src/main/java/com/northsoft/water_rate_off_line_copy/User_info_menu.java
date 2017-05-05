@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.northsoft.User_page.Copy_water_meter;
 import com.northsoft.User_page.User_bill_and_check;
-import com.northsoft.User_page.User_change_personal_info;
 import com.northsoft.User_page.User_info_detail_page;
 
 /**
@@ -32,13 +31,13 @@ public class User_info_menu extends AppCompatActivity implements View.OnClickLis
         yonghuziliao = (Button) findViewById(R.id.yonghuziliao);
         yonghuzhangdanhejiaofeichaxun = (Button) findViewById(R.id.yonghuzhangdanhejiaofeichaxun);
         chaobiao = (Button) findViewById(R.id.chaobiao);
-        xiugaiyonghuxinxi = (Button) findViewById(R.id.xiugaiyonghuxinxi);
+      //  xiugaiyonghuxinxi = (Button) findViewById(R.id.xiugaiyonghuxinxi);
 
         //设置点击事件
         yonghuziliao.setOnClickListener(this);
         yonghuzhangdanhejiaofeichaxun.setOnClickListener(this);
         chaobiao.setOnClickListener(this);
-        xiugaiyonghuxinxi.setOnClickListener(this);
+      //  xiugaiyonghuxinxi.setOnClickListener(this);
     }
 
     @Override
@@ -59,12 +58,12 @@ public class User_info_menu extends AppCompatActivity implements View.OnClickLis
                 intent.setClass(User_info_menu.this,Copy_water_meter.class);
                 intent.putExtra("yonghubianhao",yonghubanhao);
                 startActivity(intent);
-                break;
-            case R.id.xiugaiyonghuxinxi:
+      /*      case R.id.xiugaiyonghuxinxi:
                 intent.setClass(User_info_menu.this,User_change_personal_info.class);
                 intent.putExtra("yonghubianhao",yonghubanhao);
                 startActivity(intent);
-                break;
+                break;*/
+            break;
         }
     }
 }

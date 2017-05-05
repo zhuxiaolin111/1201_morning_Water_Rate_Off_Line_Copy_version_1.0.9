@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         //初始化按钮
         dianji_begin = (Button) findViewById(R.id.dianji_begin_btn);
         tijiao_btn = (Button) findViewById(R.id.dianji_tijiao_btn);
-        xiugai_btn = (Button) findViewById(R.id.dianji_tijiaoinfo_btn);
+       // xiugai_btn = (Button) findViewById(R.id.dianji_tijiaoinfo_btn);
         // downloading_data1 = (TextView) findViewById(R.id.downloading1);
         downloading_data2 = (TextView) findViewById(R.id.downloading2);
         downloading_data3 = (TextView) findViewById(R.id.downloading3);
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         //隐藏'开始抄表按钮'，在全部请求完毕后显示
         dianji_begin.setVisibility(View.INVISIBLE);
         tijiao_btn.setVisibility(View.INVISIBLE);
-        xiugai_btn.setVisibility(View.INVISIBLE);
+      //  xiugai_btn.setVisibility(View.INVISIBLE);
         //定义接收所有接口2数据的list
         jiekou2_model_list = new ArrayList<>();
 
@@ -198,13 +198,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-        xiugai_btn.setOnClickListener(new View.OnClickListener() {
+      /*  xiugai_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(MainActivity.this, TijiaoInfoActivity.class);
                 startActivity(intent1);
             }
-        });
+        });*/
 
         //初始化接收接口1里id的list
         first_page_id_list = new ArrayList<>();
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 dianji_begin.setVisibility(View.VISIBLE);
                                 tijiao_btn.setVisibility(View.VISIBLE);
-                                xiugai_btn.setVisibility(View.VISIBLE);
+                           //     xiugai_btn.setVisibility(View.VISIBLE);
                             }
                         });
                         break;
