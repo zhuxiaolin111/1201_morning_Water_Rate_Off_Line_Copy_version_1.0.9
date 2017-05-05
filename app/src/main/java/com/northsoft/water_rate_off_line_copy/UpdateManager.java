@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -52,6 +53,8 @@ public class UpdateManager {
     private ProgressBar mProgress;
     private Dialog mDownloadDialog;
     InputStream is;
+    int versionCode;
+    boolean flag=false;
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -64,6 +67,10 @@ public class UpdateManager {
                     // 安装文件
                     installApk();
                     break;
+                case 3:
+                    showNoticeDialog();
+                    Toast.makeText(mContext,R.string.soft_update_no, Toast.LENGTH_LONG).show();
+                    break;
                 default:
                     break;
             }
@@ -74,6 +81,9 @@ public class UpdateManager {
 
     public UpdateManager(Context context) {
         this.mContext = context;
+        // 获取当前软件版本
+         versionCode = getVersionCode(mContext);
+      //  String versionName = getVersionName(mContext);
     }
 
     /**
@@ -84,7 +94,7 @@ public class UpdateManager {
             // 显示提示对话框
             showNoticeDialog();
         } else {
-               Toast.makeText(mContext, "12312313", Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -96,9 +106,7 @@ public class UpdateManager {
 
     private boolean isUpdate() {
 
-        // 获取当前软件版本
-        int versionCode = getVersionCode(mContext);
-        String versionName = getVersionName(mContext);
+
 
         new Thread(new Runnable() {
             @Override
@@ -120,15 +128,32 @@ public class UpdateManager {
                 try {
                     response = call.execute();
                     String s = response.body().string();
-                    is = response.body().byteStream();
+                    InputStream   is   =   new ByteArrayInputStream(s.getBytes());
+                    //InputStream   is   =   new   ByteArrayInputStream(s.getBytes("UTF-8"));
+
                     ParseXmlService service = new ParseXmlService();
                     mHashMap = service.parseXml(is);
+                    // 把version.xml放到网络上，然后获取文件信息
+                    //  InputStream inStream = ParseXmlService.class.getClassLoader().getResourceAsStream("version.xml");
+                    // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
 
+                    if (null != mHashMap) {
+                        //  int serviceCode = Integer.valueOf(mHashMap.get("version"));
+                        // 版本判断
+                        String serviceCode = mHashMap.get("version");
+                        String StrVersionCode = String.valueOf(versionCode);
+                     //   String StrVersionName = versionName;
+                        if (serviceCode.compareTo(StrVersionCode) >= 0) {
+                           flag=true;
+                            mHandler.sendEmptyMessage(3);
+                        }
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
+
         }).start();
 
 
@@ -160,17 +185,7 @@ public class UpdateManager {
         //  InputStream inStream = ParseXmlService.class.getClassLoader().getResourceAsStream("version.xml");
         // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
 
-        if (null != mHashMap) {
-            //  int serviceCode = Integer.valueOf(mHashMap.get("version"));
-            // 版本判断
-            String serviceCode = mHashMap.get("version");
-            String StrVersionCode = String.valueOf(versionCode);
-            String StrVersionName = versionName;
-            if (serviceCode.compareTo("1") > 0) {
-                return true;
-            }
-        }
-        return false;
+        return flag;
     }
 
     /**
