@@ -105,12 +105,11 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.login_layout);
-        //  int i=getVersionCode(context);
-        //  login1();
-        initView();
-        context = this.getApplication();
+        context = loginActivity.this;
         UpdateManager updateManager = new UpdateManager(context);
         updateManager.checkUpdate();
+        initView();
+
         tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
           /*
       * 唯一的设备ID：

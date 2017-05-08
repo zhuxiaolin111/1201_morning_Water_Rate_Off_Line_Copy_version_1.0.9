@@ -16,6 +16,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -34,6 +35,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+
 public class UpdateManager {
     /* 下载中 */
     private static final int DOWNLOAD = 1;
@@ -51,10 +53,13 @@ public class UpdateManager {
     private Context mContext;
     /* 更新进度条 */
     private ProgressBar mProgress;
+    private TextView mTextView;
     private Dialog mDownloadDialog;
     InputStream is;
     int versionCode;
-    boolean flag=false;
+    String versionName;
+    boolean flag = false;
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -62,14 +67,18 @@ public class UpdateManager {
                 case DOWNLOAD:
                     // 设置进度条位置
                     mProgress.setProgress(progress);
+
+                    mTextView.setText("当前进度为:"+progress + "%");
                     break;
                 case DOWNLOAD_FINISH:
+                     Toast.makeText(mContext,"下载完成", Toast.LENGTH_LONG).show();
                     // 安装文件
                     installApk();
                     break;
                 case 3:
+
                     showNoticeDialog();
-                    Toast.makeText(mContext,R.string.soft_update_no, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(mContext,R.string.soft_update_no, Toast.LENGTH_LONG).show();
                     break;
                 default:
                     break;
@@ -82,8 +91,8 @@ public class UpdateManager {
     public UpdateManager(Context context) {
         this.mContext = context;
         // 获取当前软件版本
-         versionCode = getVersionCode(mContext);
-      //  String versionName = getVersionName(mContext);
+        versionCode = getVersionCode(mContext);
+        versionName = getVersionName(mContext);
     }
 
     /**
@@ -107,7 +116,6 @@ public class UpdateManager {
     private boolean isUpdate() {
 
 
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -128,7 +136,7 @@ public class UpdateManager {
                 try {
                     response = call.execute();
                     String s = response.body().string();
-                    InputStream   is   =   new ByteArrayInputStream(s.getBytes());
+                    InputStream is = new ByteArrayInputStream(s.getBytes());
                     //InputStream   is   =   new   ByteArrayInputStream(s.getBytes("UTF-8"));
 
                     ParseXmlService service = new ParseXmlService();
@@ -140,11 +148,11 @@ public class UpdateManager {
                     if (null != mHashMap) {
                         //  int serviceCode = Integer.valueOf(mHashMap.get("version"));
                         // 版本判断
-                        String serviceCode = mHashMap.get("version");
+                       Double serviceCode = Double.valueOf(mHashMap.get("version"));
                         String StrVersionCode = String.valueOf(versionCode);
-                     //   String StrVersionName = versionName;
-                        if (serviceCode.compareTo(StrVersionCode) >= 0) {
-                           flag=true;
+                       Double StrVersionName = Double.valueOf(versionName);
+                        if (serviceCode.compareTo(StrVersionName) >= 0) {
+                            flag = true;
                             mHandler.sendEmptyMessage(3);
                         }
                     }
@@ -155,30 +163,6 @@ public class UpdateManager {
             }
 
         }).start();
-
-
- /*       URL url = null;
-        try {
-            url = new URL(UrlAddress.UpdateUrl);
-        } catch (MalformedURLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        HttpURLConnection conn = null;
-        try {
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setConnectTimeout(5000);
-            PrintWriter pw = new PrintWriter(conn.getOutputStream());
-                                pw.print("method"+"getappversion");
-                                pw.flush();
-                                pw.close();
-            //4响应码
-            int code = conn.getResponseCode();
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }*/
 
 
         // 把version.xml放到网络上，然后获取文件信息
@@ -196,10 +180,10 @@ public class UpdateManager {
      */
     private int getVersionCode(Context context) {
         PackageManager packageManager;
-        PackageInfo info=null;
-        packageManager=context.getPackageManager();
+        PackageInfo info = null;
+        packageManager = context.getPackageManager();
         try {
-            info=packageManager.getPackageInfo("com.northsoft.water_rate_off_line_copy",0);
+            info = packageManager.getPackageInfo("com.northsoft.water_rate_off_line_copy", 0);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -235,6 +219,7 @@ public class UpdateManager {
      */
     private void showNoticeDialog() {
         // 构造对话框
+
         Builder builder = new Builder(mContext);
         builder.setTitle(R.string.soft_update_title);
         builder.setMessage(R.string.soft_update_info);
@@ -255,6 +240,7 @@ public class UpdateManager {
             }
         });
         Dialog noticeDialog = builder.create();
+
         noticeDialog.show();
     }
 
@@ -262,14 +248,18 @@ public class UpdateManager {
      * 显示软件下载对话框
      */
     private void showDownloadDialog() {
+
         // 构造软件下载对话框
         Builder builder = new Builder(mContext);
         //builder.setTitle(R.string.soft_updating);
         // 给下载对话框增加进度条
+        builder.setTitle("提示");
+        builder.setIcon(android.R.drawable.ic_dialog_info);
         builder.setMessage("正在更新中......");
         final LayoutInflater inflater = LayoutInflater.from(mContext);
         View v = inflater.inflate(R.layout.softupdate_progress, null);
         mProgress = (ProgressBar) v.findViewById(R.id.update_progress);
+        mTextView= (TextView) v.findViewById(R.id.textview);
         builder.setView(v);
         // 取消更新
         builder.setNegativeButton(R.string.soft_update_cancel, new OnClickListener() {
@@ -285,6 +275,8 @@ public class UpdateManager {
         // 现在文件
         downloadApk();
     }
+
+
 
     /**
      * 下载apk文件
@@ -310,7 +302,8 @@ public class UpdateManager {
                     // 获得存储卡的路径
                     String sdpath = Environment.getExternalStorageDirectory() + "/";
                     mSavePath = sdpath + "download";
-                    URL url = new URL(mHashMap.get("url"));
+                   URL url = new URL(mHashMap.get("url"));
+                 //   URL url = new URL("http://app.xiaoxinxh.com/99danji/20/");
                     // 创建连接
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
@@ -335,6 +328,7 @@ public class UpdateManager {
                         count += numread;
                         // 计算进度条位置
                         progress = (int) (((float) count / length) * 100);
+
                         // 更新进度
                         mHandler.sendEmptyMessage(DOWNLOAD);
                         if (numread <= 0) {

@@ -730,7 +730,6 @@ public class Copy_water_meter extends AppCompatActivity implements View.OnClickL
                 } else {
                     return false;
                 }
-
         }
         return false;
     }
