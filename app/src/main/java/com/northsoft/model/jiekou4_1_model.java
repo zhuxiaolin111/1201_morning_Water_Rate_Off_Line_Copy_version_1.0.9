@@ -8,111 +8,134 @@ import java.util.List;
 
 public class jiekou4_1_model {
 
-        private int result;
-        private List<Data> data;
-        private String errtext;
 
+    /**
+     * Result : 0
+     * Data : [{"MeterID":1,"WaterUsed":9,"WaterFee":17.55,"BillID":"0103246803","BillCycle":"201705","MeterType":"居民用水","MeterEnd":833,"MeterStart":824,"DrainFee":8.55}]
+     * ErrText :
+     */
 
-        public void setResult(int result) {
-            this.result = result;
-        }
-        public int getResult() {
-            return result;
-        }
+    private int Result;
+    private String ErrText;
+    private List<DataBean> Data;
 
-        public void setData(List<Data> data) {
-            this.data = data;
-        }
-        public List<Data> getData() {
-            return data;
-        }
-
-        public void setErrtext(String errtext) {
-            this.errtext = errtext;
-        }
-        public String getErrtext() {
-            return errtext;
-        }
-
-
-
-    public static class Data {
-
-        private int meterid;
-        private int waterused;
-        private double waterfee;
-        private String billid;
-        private String billcycle;
-        private String metertype;
-        private int meterend;
-        private int meterstart;
-        private double drainfee;
-
-
-        public void setMeterid(int meterid) {
-            this.meterid = meterid;
-        }
-        public int getMeterid() {
-            return meterid;
-        }
-
-        public void setWaterused(int waterused) {
-            this.waterused = waterused;
-        }
-        public int getWaterused() {
-            return waterused;
-        }
-
-        public void setWaterfee(double waterfee) {
-            this.waterfee = waterfee;
-        }
-        public double getWaterfee() {
-            return waterfee;
-        }
-
-        public void setBillid(String billid) {
-            this.billid = billid;
-        }
-        public String getBillid() {
-            return billid;
-        }
-
-        public void setBillcycle(String billcycle) {
-            this.billcycle = billcycle;
-        }
-        public String getBillcycle() {
-            return billcycle;
-        }
-
-        public void setMetertype(String metertype) {
-            this.metertype = metertype;
-        }
-        public String getMetertype() {
-            return metertype;
-        }
-
-        public void setMeterend(int meterend) {
-            this.meterend = meterend;
-        }
-        public int getMeterend() {
-            return meterend;
-        }
-
-        public void setMeterstart(int meterstart) {
-            this.meterstart = meterstart;
-        }
-        public int getMeterstart() {
-            return meterstart;
-        }
-
-        public void setDrainfee(double drainfee) {
-            this.drainfee = drainfee;
-        }
-        public double getDrainfee() {
-            return drainfee;
-        }
-
+    public int getResult() {
+        return Result;
     }
 
+    public void setResult(int Result) {
+        this.Result = Result;
+    }
 
+    public String getErrText() {
+        return ErrText;
+    }
+
+    public void setErrText(String ErrText) {
+        this.ErrText = ErrText;
+    }
+
+    public List<DataBean> getData() {
+        return Data;
+    }
+
+    public void setData(List<DataBean> Data) {
+        this.Data = Data;
+    }
+
+    public static class DataBean {
+        /**
+         * MeterID : 1
+         * WaterUsed : 9
+         * WaterFee : 17.55
+         * BillID : 0103246803
+         * BillCycle : 201705
+         * MeterType : 居民用水
+         * MeterEnd : 833
+         * MeterStart : 824
+         * DrainFee : 8.55
+         */
+
+        private int MeterID;
+        private int WaterUsed;
+        private double WaterFee;
+        private String BillID;
+        private String BillCycle;
+        private String MeterType;
+        private int MeterEnd;
+        private int MeterStart;
+        private double DrainFee;
+
+        public int getMeterID() {
+            return MeterID;
+        }
+
+        public void setMeterID(int MeterID) {
+            this.MeterID = MeterID;
+        }
+
+        public int getWaterUsed() {
+            return WaterUsed;
+        }
+
+        public void setWaterUsed(int WaterUsed) {
+            this.WaterUsed = WaterUsed;
+        }
+
+        public double getWaterFee() {
+            return WaterFee;
+        }
+
+        public void setWaterFee(double WaterFee) {
+            this.WaterFee = WaterFee;
+        }
+
+        public String getBillID() {
+            return BillID;
+        }
+
+        public void setBillID(String BillID) {
+            this.BillID = BillID;
+        }
+
+        public String getBillCycle() {
+            return BillCycle;
+        }
+
+        public void setBillCycle(String BillCycle) {
+            this.BillCycle = BillCycle;
+        }
+
+        public String getMeterType() {
+            return MeterType;
+        }
+
+        public void setMeterType(String MeterType) {
+            this.MeterType = MeterType;
+        }
+
+        public int getMeterEnd() {
+            return MeterEnd;
+        }
+
+        public void setMeterEnd(int MeterEnd) {
+            this.MeterEnd = MeterEnd;
+        }
+
+        public int getMeterStart() {
+            return MeterStart;
+        }
+
+        public void setMeterStart(int MeterStart) {
+            this.MeterStart = MeterStart;
+        }
+
+        public double getDrainFee() {
+            return DrainFee;
+        }
+
+        public void setDrainFee(double DrainFee) {
+            this.DrainFee = DrainFee;
+        }
+    }
 }

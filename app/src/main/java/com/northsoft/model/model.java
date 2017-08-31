@@ -1,18 +1,16 @@
 package com.northsoft.model;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
- * Created by chensiqi on 2016/11/18.
+ * Created by zhuxiaolin on 2017/5/31 9:04.
  */
 
-public class jiekou6_2_model {
-
+public class model {
 
     /**
      * Result : 0
-     * Data : [{"IsReaded":0,"Location":null,"InstallDate":1094400000000,"LockNum":null,"MeterID":1,"Calibre":20,"price_total":2.5,"MeterType":"居民用水","LastChangeDate":1094400000000,"NumStart":19,"Nameplate":null,"State":"正常","NumEnd":null,"LastEndNum":19}]
+     * Data : [{"IsReaded":1,"Location":null,"InstallDate":null,"LockNum":null,"MeterID":1,"Calibre":15,"price_total":2.9,"MeterType":"居民用水","LastChangeDate":null,"NumStart":824,"Nameplate":null,"State":"正常","NumEnd":833,"LastEndNum":833}]
      * ErrText :
      */
 
@@ -46,20 +44,20 @@ public class jiekou6_2_model {
 
     public static class DataBean {
         /**
-         * IsReaded : 0
+         * IsReaded : 1
          * Location : null
-         * InstallDate : 1094400000000
+         * InstallDate : null
          * LockNum : null
          * MeterID : 1
-         * Calibre : 20
-         * price_total : 2.5
+         * Calibre : 15
+         * price_total : 2.9
          * MeterType : 居民用水
-         * LastChangeDate : 1094400000000
-         * NumStart : 19
+         * LastChangeDate : null
+         * NumStart : 824
          * Nameplate : null
          * State : 正常
-         * NumEnd : null
-         * LastEndNum : 19
+         * NumEnd : 833
+         * LastEndNum : 833
          */
 
         private int IsReaded;
@@ -74,7 +72,7 @@ public class jiekou6_2_model {
         private int NumStart;
         private Object Nameplate;
         private String State;
-        private Object NumEnd;
+        private int NumEnd;
         private int LastEndNum;
 
         public int getIsReaded() {
@@ -97,7 +95,7 @@ public class jiekou6_2_model {
             return InstallDate;
         }
 
-        public void setInstallDate(Objects InstallDate) {
+        public void setInstallDate(Object InstallDate) {
             this.InstallDate = InstallDate;
         }
 
@@ -173,11 +171,11 @@ public class jiekou6_2_model {
             this.State = State;
         }
 
-        public Object getNumEnd() {
+        public int getNumEnd() {
             return NumEnd;
         }
 
-        public void setNumEnd(Object NumEnd) {
+        public void setNumEnd(int NumEnd) {
             this.NumEnd = NumEnd;
         }
 

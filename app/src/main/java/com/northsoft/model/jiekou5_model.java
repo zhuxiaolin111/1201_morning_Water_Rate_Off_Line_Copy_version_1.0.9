@@ -1,6 +1,5 @@
 package com.northsoft.model;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,55 +8,63 @@ import java.util.List;
 
 public class jiekou5_model {
 
+    /**
+     * Result : 0
+     * Data : [{"Payment":153.1,"PayDate":"2017-01-25"},{"Payment":0,"PayDate":"2017-01-25"},{"Payment":0,"PayDate":"2017-01-25"},{"Payment":100,"PayDate":"2016-05-24"},{"Payment":100,"PayDate":"2015-09-01"},{"Payment":230,"PayDate":"2015-02-16"}]
+     * ErrText :
+     */
 
-        private int result;
-        private List<Data> data;
-        private String errtext;
+    private int Result;
+    private String ErrText;
+    private List<DataBean> Data;
 
-
-        public void setResult(int result) {
-            this.result = result;
-        }
-        public int getResult() {
-            return result;
-        }
-
-        public void setData(List<Data> data) {
-            this.data = data;
-        }
-        public List<Data> getData() {
-            return data;
-        }
-
-        public void setErrtext(String errtext) {
-            this.errtext = errtext;
-        }
-        public String getErrtext() {
-            return errtext;
-        }
-
-
-    public static class Data {
-
-        private int payment;
-        private Date paydate;
-
-
-        public void setPayment(int payment) {
-            this.payment = payment;
-        }
-        public int getPayment() {
-            return payment;
-        }
-
-        public void setPaydate(Date paydate) {
-            this.paydate = paydate;
-        }
-        public Date getPaydate() {
-            return paydate;
-        }
-
+    public int getResult() {
+        return Result;
     }
 
+    public void setResult(int Result) {
+        this.Result = Result;
+    }
 
+    public String getErrText() {
+        return ErrText;
+    }
+
+    public void setErrText(String ErrText) {
+        this.ErrText = ErrText;
+    }
+
+    public List<DataBean> getData() {
+        return Data;
+    }
+
+    public void setData(List<DataBean> Data) {
+        this.Data = Data;
+    }
+
+    public static class DataBean {
+        /**
+         * Payment : 153.1
+         * PayDate : 2017-01-25
+         */
+
+        private double Payment;
+        private String PayDate;
+
+        public double getPayment() {
+            return Payment;
+        }
+
+        public void setPayment(double Payment) {
+            this.Payment = Payment;
+        }
+
+        public String getPayDate() {
+            return PayDate;
+        }
+
+        public void setPayDate(String PayDate) {
+            this.PayDate = PayDate;
+        }
+    }
 }

@@ -17,7 +17,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:orientation="vertical"
+
             >
 
             <TextView
@@ -25,6 +27,7 @@
                 style="@style/jichu_wenzi_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/gray"
                 android:text="未抄"/>
 
             <View
@@ -44,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:paddingLeft="1dp"
+
             >
 
             <TextView
@@ -51,6 +56,7 @@
                 style="@style/jichu_wenzi_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/gray"
                 android:text="已抄"/>
 
             <View
@@ -70,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
+          android:paddingLeft="1dp"
             >
 
             <TextView
@@ -77,6 +84,7 @@
                 style="@style/jichu_wenzi_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/gray"
                 android:text="全部"/>
 
             <View
@@ -96,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
+           android:paddingLeft="1dp"
             >
 
             <TextView
@@ -103,6 +112,7 @@
                 style="@style/jichu_wenzi_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/gray"
                 android:text="欠费"/>
 
             <View

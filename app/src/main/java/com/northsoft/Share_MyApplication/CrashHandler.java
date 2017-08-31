@@ -2,7 +2,6 @@ package com.northsoft.Share_MyApplication;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -10,8 +9,6 @@ import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.northsoft.water_rate_off_line_copy.loginActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -72,17 +69,18 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      */
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        if (!handleException(ex) && mDefaultHandler != null) {
+        if (!handleException(ex)) {
             // 如果用户没有处理则让系统默认的异常处理器来处理
             mDefaultHandler.uncaughtException(thread, ex);
         } else {
             try {
-
-                Thread.sleep(1000); // 1秒后重启，可有可无，仅凭个人喜好
+              //  System.exit(0);
+                android.os.Process.killProcess(android.os.Process.myPid());
+              /*  Thread.sleep(1000); // 1秒后重启，可有可无，仅凭个人喜好
                 Intent intent = new Intent(mContext, loginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
-            } catch (InterruptedException e) {
+                mContext.startActivity(intent);*/
+            } catch (Exception e) {
                 Log.e(TAG, "error : ", e);
             }
             // 退出程序

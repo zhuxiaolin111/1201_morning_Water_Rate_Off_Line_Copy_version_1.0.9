@@ -49,15 +49,15 @@ public class User_Bill_Detail_Page extends AppCompatActivity {
             }
         }
         if (application.getJiekou4_1_BILLID_str_list().get(i) != "") {
-            shuibiaoxuhao.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterid() + "");
-            yongshuixingzhi.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMetertype() + "");
-            qishu.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterstart() + "");
-            zhishu.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterend() + "");
-            shuiliang.setText(application.getJiekou4_1Model().get(i).getData().get(0).getWaterused() + "");
-            paiwufei.setText(String.valueOf(application.getJiekou4_1Model().get(i).getData().get(0).getDrainfee()));
-            shuifei.setText(String.valueOf(application.getJiekou4_1Model().get(i).getData().get(0).getWaterfee()));
-            hejijine.setText(String.valueOf((application.getJiekou4_1Model().get(i).getData().get(0).getDrainfee() +
-                    application.getJiekou4_1Model().get(i).getData().get(0).getWaterfee())));
+            shuibiaoxuhao.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterID() + "");
+            yongshuixingzhi.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterType() + "");
+            qishu.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterStart() + "");
+            zhishu.setText(application.getJiekou4_1Model().get(i).getData().get(0).getMeterEnd() + "");
+            shuiliang.setText(application.getJiekou4_1Model().get(i).getData().get(0).getWaterUsed() + "");
+            paiwufei.setText(String.valueOf(application.getJiekou4_1Model().get(i).getData().get(0).getDrainFee()));
+            shuifei.setText(String.valueOf(application.getJiekou4_1Model().get(i).getData().get(0).getWaterFee()));
+            hejijine.setText(String.valueOf((application.getJiekou4_1Model().get(i).getData().get(0).getDrainFee() +
+                    application.getJiekou4_1Model().get(i).getData().get(0).getWaterFee())));
         } else {
             shuibiaoxuhao.setText("无数据");
             yongshuixingzhi.setText("无数据");

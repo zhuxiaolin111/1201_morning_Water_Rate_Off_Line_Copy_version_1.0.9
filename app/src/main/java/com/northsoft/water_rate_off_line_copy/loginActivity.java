@@ -15,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
     //装在这首页所有表簿编号的list
     private ArrayList<String> first_page_id_list;
     private ArrayList<String> loginUserID_list;
+
     Context context;
     Handler handler = new Handler() {
         @Override
@@ -86,6 +88,7 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
                 int i = appli.getLogin_id_str_list().size();
                 if (!appli.getLogin_id_str_list().get(i - 1).equals("") && !appli.getJiekou1_model_list().equals("")) {
                     myDialog.dismiss();
+                    hintKbTwo();
                     Intent intent = new Intent(loginActivity.this, First_Page.class);
                     startActivity(intent);
                     loginActivity.this.finish();
@@ -96,6 +99,9 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
             } else if (msg.what == 4) {
                 myDialog.dismiss();
                 Toast.makeText(loginActivity.this, "无此用户，请重新输入！", Toast.LENGTH_SHORT).show();
+            } else if (msg.what == 5) {
+                Toast.makeText(loginActivity.this, "服务器连接超时", Toast.LENGTH_SHORT).show();
+                //   System.exit(0);
             }
         }
     };
@@ -269,8 +275,8 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
                 RequestBody formbody = new FormBody.Builder()
                         .add("method", "getuserid")
                         .add("isweixin", "1")
-                        .add("mobile", tel)
-                        .add("imei", imei)
+                        .add("mobile", "15694201167")
+                        .add("imei", "861113030148885")
                         .build();
                 Request request = new Request.Builder()
                         //.url("http://syhf.eheat.com.cn/weixinservice.ashx")
@@ -281,18 +287,16 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
                 okhttp3.Call call = mOkHttpClient.newCall(request);
                 try {
                     Response response = call.execute();
-
                     userid_str = response.body().string();
+                    JSONObject jsonObject2 = new JSONObject(userid_str);
+                    loginUserID_list.add(jsonObject2.getString("userid"));
+                    appli.setLogin_id_str_list(loginUserID_list);
 
-                    try {
-                        JSONObject jsonObject2 = new JSONObject(userid_str);
-                        loginUserID_list.add(jsonObject2.getString("userid"));
-                        appli.setLogin_id_str_list(loginUserID_list);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                } catch (Exception e) {
+                    Message message = new Message();
+                    message.what = 5;
+                    handler.sendEmptyMessage(5);
+                    e.printStackTrace();
                 }
 
                 Message message = new Message();
@@ -312,7 +316,8 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
         myDialog.setMessage("查找用户，请稍后..."); // 设置进度条的提示信息
         myDialog.setIcon(android.R.drawable.ic_dialog_info); // 设置进度条的图标
         myDialog.setIndeterminate(false); // 设置进度条是否为不明确
-        myDialog.setCancelable(true); // 设置进度条是否按返回键取消
+        myDialog.setCancelable(false); // 设置进度条是否按返回键取消
+
         myDialog.show(); // 显示进度条
     }
 
@@ -378,5 +383,15 @@ public class loginActivity extends AppCompatActivity implements OnClickListener 
             e.printStackTrace();
         }*/
         return versionCode;
+    }
+
+    //此方法只是关闭软键盘
+    private void hintKbTwo() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm.isActive() && getCurrentFocus() != null) {
+            if (getCurrentFocus().getWindowToken() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
     }
 }

@@ -3,13 +3,16 @@ package com.northsoft.water_rate_off_line_copy;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.northsoft.Share_MyApplication.MyApplication;
@@ -21,13 +24,17 @@ import com.northsoft.model.jiekou4_model;
 import com.northsoft.model.jiekou5_model;
 import com.northsoft.model.jiekou6_1_model;
 import com.northsoft.model.jiekou6_2_model;
+import com.northsoft.order.DBManager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -39,33 +46,41 @@ public class MainActivity extends AppCompatActivity {
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                //下载接口2里的数据
-                download_jiekou2_data();
-            } else if (msg.what == 2) {
+            switch (msg.what) {
+                case 1:
+                    //下载接口2里的数据
+                    download_jiekou2_data();
+                    break;
+                case 2:
+                    appli.setJiekou2_Model_list(jiekou2_model_list);
+                    //下载接口3里的数据
+                    download_jiekou3_data();
+                    break;
+                case 3:
+                    //下载接口4里的数据
+                    download_jiekou4_data();
+                    //下载接口6.2里的数据
+                    download_jiekou6_2_data();
 
-                appli.setJiekou2_Model_list(jiekou2_model_list);
-                //下载接口3里的数据
-                download_jiekou3_data();
-
-            } else if (msg.what == 3) {
-                //下载接口4里的数据
-                download_jiekou4_data();
-                //下载接口6.2里的数据
-                download_jiekou6_2_data();
-
-                //下载接口6.1里的数据
-                //  download_jiekou6_1_data();
-            } else if (msg.what == 4) {
-                appli.setJiekou4_1Model(jiekou4_1_model_list);
-                //下载接口4.1里的数据
-                download_jiekou4_1_data();
-
-                //下载接口5里的数据
-                download_jiekou5_data();
-
-            } else if (msg.what == 5) {
-                show_btn();
+                    //下载接口6.1里的数据
+                    //  download_jiekou6_1_data();
+                    break;
+                case 4:
+                    appli.setJiekou4_1Model(jiekou4_1_model_list);
+                    //下载接口5里的数据
+                    download_jiekou5_data();
+                    break;
+                case 5:
+                    //下载接口4.1里的数据
+                    download_jiekou4_1_data();
+                    break;
+                case 6:
+                    show_btn();
+                    break;
+                case 7:
+                 Toast.makeText(MainActivity.this, "服务器连接超时", Toast.LENGTH_SHORT).show();
+                 //  MainActivity.this.finish();
+                    break;
             }
         }
     };
@@ -126,12 +141,14 @@ public class MainActivity extends AppCompatActivity {
 
     //定义时间戳
     private String time = getTime();
-
+    //SQLite数据库管理类的实体化
+    private DBManager mgr;
+    private Cursor cursor;
 
     //表薄号
     String id_str;
     private ProgressDialog myDialog;
-    String id_login="test";
+    String id_login = "test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         id_str = intent.getStringExtra("id_str");
         appli = new MyApplication();
+
        /* int x = appli.getLogin_id_str_list().size() - 1;
         id_login = appli.getLogin_id_str_list().get(x);  */
         circle();
@@ -147,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         //初始化按钮
         dianji_begin = (Button) findViewById(R.id.dianji_begin_btn);
         tijiao_btn = (Button) findViewById(R.id.dianji_tijiao_btn);
-       // xiugai_btn = (Button) findViewById(R.id.dianji_tijiaoinfo_btn);
+        // xiugai_btn = (Button) findViewById(R.id.dianji_tijiaoinfo_btn);
         // downloading_data1 = (TextView) findViewById(R.id.downloading1);
         downloading_data2 = (TextView) findViewById(R.id.downloading2);
         downloading_data3 = (TextView) findViewById(R.id.downloading3);
@@ -159,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         //隐藏'开始抄表按钮'，在全部请求完毕后显示
         dianji_begin.setVisibility(View.INVISIBLE);
         tijiao_btn.setVisibility(View.INVISIBLE);
-      //  xiugai_btn.setVisibility(View.INVISIBLE);
+        //  xiugai_btn.setVisibility(View.INVISIBLE);
         //定义接收所有接口2数据的list
         jiekou2_model_list = new ArrayList<>();
 
@@ -215,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
         download_jiekou2_data();
     }
 
+
     public void show_btn() {
         //所有数据下载完毕后才能点击开始按钮的方法（开启新线程以不影响主线程UI的绘制）
         new Thread(new Runnable() {
@@ -227,72 +246,22 @@ public class MainActivity extends AppCompatActivity {
                     int i3 = appli.getJiekou4Model().size();
                     int i4 = appli.getJiekou5Model().size();
                     int i5 = appli.getJiekou6_2modelList().size();
-                //    if (i1 == i2 && i1 == i3 && i2 == i5 && i3 == i5 && i4 == i5) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                    //    if (i1 == i2 && i1 == i3 && i2 == i5 && i3 == i5 && i4 == i5) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
 
-                                dianji_begin.setVisibility(View.VISIBLE);
-                                tijiao_btn.setVisibility(View.VISIBLE);
-                           //     xiugai_btn.setVisibility(View.VISIBLE);
-                            }
-                        });
-                        break;
-                 /*   } else {
-
-                    }*/
-
+                            dianji_begin.setVisibility(View.VISIBLE);
+                            tijiao_btn.setVisibility(View.VISIBLE);
+                            //     xiugai_btn.setVisibility(View.VISIBLE);
+                        }
+                    });
+                    break;
                 }
             }
         }).start();
     }
 
-    //下载接口1里的数据
-    private void download_jiekou1_data() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OkHttpClient mOkHttpClient = new OkHttpClient();
-                Request.Builder requestBuilder = new Request.Builder().url("http://qy.eheat.com.cn/waterservice/service.ashx?method=BookList&OperatorNo=0104&UserID=test&time=" + time);
-                requestBuilder.method("GET", null);
-                Request request = requestBuilder.build();
-                okhttp3.Call call = mOkHttpClient.newCall(request);
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onFailure(okhttp3.Call call, IOException e) {
-
-                    }
-
-                    @Override
-                    public void onResponse(okhttp3.Call call, Response response) throws IOException {
-                        jiekou1_str = response.body().string();
-                        list = new ArrayList<>(JSON.parseArray(jiekou1_str, jiekou1_model.class));
-
-                        int x = list.size();
-                        for (int i = 0; i < x; i++) {
-                            String str = list.get(i).getId();
-                            first_page_id_list.add(str);//有了接口1里所有的id才能请求接口2
-                        }
-                        appli.setJiekou1_model_list(list);
-                        appli.setJiekou2_id_str_list(first_page_id_list);
-                        a = 1;
-                        Message message = new Message();
-                        message.what = 1;
-                        handler.sendEmptyMessage(1);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                //    downloading_data1.setText("一级数据下载完毕");
-                            }
-                        });
-
-
-                    }
-                });
-            }
-        }).start();
-
-    }
 
     //下载接口2里的数据
     public void download_jiekou2_data() {
@@ -399,7 +368,6 @@ public class MainActivity extends AppCompatActivity {
 
     //下载接口4里的数据
     public void download_jiekou4_data() {
-
         final int s = appli.getJiekou3_id_str_list().size();
         final OkHttpClient mOkHttpClient = new OkHttpClient();
         int x = appli.getLogin_id_str_list().size() - 1;
@@ -421,7 +389,8 @@ public class MainActivity extends AppCompatActivity {
                     okhttp3.Call call = mOkHttpClient.newCall(request);
                     try {
                         Response response = call.execute();
-                        jiekou4Model = JSON.parseObject(response.body().string(), jiekou4_model.class);
+                        String string = response.body().string();
+                        jiekou4Model = JSON.parseObject(string, jiekou4_model.class);
                         jiekou4_model_list.add(jiekou4Model);
                     } catch (IOException e1) {
                         e1.printStackTrace();
@@ -449,25 +418,25 @@ public class MainActivity extends AppCompatActivity {
     public void download_jiekou4_1_data() {
         final OkHttpClient mOkHttpClient = new OkHttpClient();
         final int sss = appli.getJiekou3_id_str_list().size();
-      int x = appli.getLogin_id_str_list().size() - 1;
+        int x = appli.getLogin_id_str_list().size() - 1;
         id_login = appli.getLogin_id_str_list().get(x);
+        for (int i = 0; i < sss; i++) {
+
+            //将BILLID存下来
+            if (null != appli.getJiekou4Model().get(i).getData()) {
+                int ss = appli.getJiekou4Model().get(i).getData().size();
+                for (int i1 = 0; i1 < ss; i1++) {
+                    String strr = appli.getJiekou4Model().get(i).getData().get(i1).getBillid();
+                    jiekou4_1_billid_model_list.add(strr);
+                }
+            } else {
+                jiekou4_1_billid_model_list.add("");
+            }
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                for (int i = 0; i < sss; i++) {
-
-                    //将BILLID存下来
-                    if (null != appli.getJiekou4Model().get(i).getData()) {
-                        int ss = appli.getJiekou4Model().get(i).getData().size();
-                        for (int i1 = 0; i1 < ss; i1++) {
-                            String strr = appli.getJiekou4Model().get(i).getData().get(i1).getBillid();
-                            jiekou4_1_billid_model_list.add(strr);
-                        }
-                    } else {
-                        jiekou4_1_billid_model_list.add("");
-                    }
-                }
 
                 appli.setJiekou4_1_BILLID_str_list(jiekou4_1_billid_model_list);//所有BILLID都存在这里了
                 int s = appli.getJiekou4_1_BILLID_str_list().size();
@@ -484,20 +453,28 @@ public class MainActivity extends AppCompatActivity {
                                 .url("http://tltx.eheat.com.cn/waterservice/service.ashx")
                                 .post(formbody4_1)
                                 .build();
-                        okhttp3.Call call4_1 = mOkHttpClient.newCall(request4_1);
+                        Call call4_1 = mOkHttpClient.newCall(request4_1);
                         try {
                             Response response = call4_1.execute();
-                            jiekou4_1Model = JSON.parseObject(response.body().string(), jiekou4_1_model.class);
-                            jiekou4_1_model_list.add(jiekou4_1Model);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
+                            String string = response.body().string();
+                            Log.d("1222222222", string);
+                           //     parseJsonMulti(string);
+                                jiekou4_1Model = JSON.parseObject(string, jiekou4_1_model.class);
+                                jiekou4_1_model_list.add(jiekou4_1Model);
+
+
+                        } catch (Exception e ) {
+                            Message message = new Message();
+                            message.what = 7;
+                            handler.sendEmptyMessage(7);
+                            e.printStackTrace();
                         }
                     } else {
                         jiekou4_1_model_list.add(null);
                     }
 
                 }
-                appli.setJiekou4_1Model(jiekou4_1_model_list);
+            //    appli.setJiekou4_1Model(jiekou4_1_model_list);
                 System.out.println(appli.getJiekou4_1Model().size());
                 e = 1;
                 runOnUiThread(new Runnable() {
@@ -507,17 +484,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 Message message1 = new Message();
-                message1.what = 5;
-                handler.sendEmptyMessage(5);
+                message1.what = 6;
+                handler.sendEmptyMessage(6);
             }
         }).start();
-
     }
-
-
     //下载接口5中的数据
     public void download_jiekou5_data() {
-      int x = appli.getLogin_id_str_list().size() - 1;
+        int x = appli.getLogin_id_str_list().size() - 1;
         id_login = appli.getLogin_id_str_list().get(x);
         new Thread(new Runnable() {
             @Override
@@ -538,9 +512,10 @@ public class MainActivity extends AppCompatActivity {
                     Call call = mOkHttpClient.newCall(request);
                     try {
                         Response response = call.execute();
-                        jiekou5Model = JSON.parseObject(response.body().string(), jiekou5_model.class);
+                        String string = response.body().string();
+                        jiekou5Model = JSON.parseObject(string, jiekou5_model.class);
                         jiekou5_model_list.add(jiekou5Model);
-                    } catch (IOException e1) {
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
@@ -561,55 +536,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //下载接口6.1里的数据
-    public void download_jiekou6_1_data() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OkHttpClient mOkHttpClient = new OkHttpClient();
-                int s = appli.getJiekou3_id_str_list().size();
-                for (int i = 0; i < s; i++) {
-                    String str = appli.getJiekou3_id_str_list().get(i);
-                    RequestBody formbody = new FormBody.Builder()
-                            .add("method", "getuserlastinfo")
-                            .add("userid", str)
-                            .build();
-                    Request request = new Request.Builder()
-                             .url("http://tltx.eheat.com.cn/handler/tltxwaterservice.ashx")
-                           // .url("http://qy.eheat.com.cn/handler/tltxwaterservice.ashx")
-                            .post(formbody)
-                            .build();
-                    Call call = mOkHttpClient.newCall(request);
-                    call.enqueue(new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
 
-                        }
-
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            jiekou6_1_str = response.body().string();
-
-                            jiekou6_1Model = JSON.parseObject(jiekou6_1_str, jiekou6_1_model.class);
-                            jiekou6_1_model_list.add(jiekou6_1Model);
-                        }
-                    });
-                }
-                appli = (MyApplication) getApplication();
-                appli.setJiekou6_1modelList(jiekou6_1_model_list);
-
-                g = 1;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //  downloading_data7.setText("下载完毕");
-                    }
-                });
-
-            }
-
-        }).start();
-    }
 
     //下载接口6.2里的数据
     public void download_jiekou6_2_data() {
@@ -681,10 +608,10 @@ public class MainActivity extends AppCompatActivity {
         myDialog = new ProgressDialog(MainActivity.this); // 获取对象
         myDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // 设置样式为圆形样式
         myDialog.setTitle("友情提示"); // 设置进度条的标题信息
-        myDialog.setMessage("玩命加载中，请稍后..."); // 设置进度条的提示信息
+        myDialog.setMessage("数据加载中，请稍后..."); // 设置进度条的提示信息
         myDialog.setIcon(android.R.drawable.ic_dialog_info); // 设置进度条的图标
         myDialog.setIndeterminate(false); // 设置进度条是否为不明确
-        myDialog.setCancelable(true); // 设置进度条是否按返回键取消
+        myDialog.setCancelable(false); // 设置进度条是否按返回键取消
 
         // 为进度条添加确定按钮 ， 并添加单机事件
         myDialog.setButton("确定", new DialogInterface.OnClickListener() {
@@ -704,6 +631,25 @@ public class MainActivity extends AppCompatActivity {
         if (myDialog != null) {
             myDialog.dismiss();
             myDialog = null;
+        }
+    }
+
+    //解析多个数据的Json
+    private void parseJsonMulti(String strResult) {
+        try {
+            JSONArray jsonObjs = new JSONObject(strResult).getJSONArray("Data");
+            String s = "";
+            for (int i = 0; i < jsonObjs.length(); i++) {
+
+                appli.setJiekou4_1Model((List<jiekou4_1_model>) jsonObjs);
+            }
+
+        } catch (JSONException e) {
+            Message message = new Message();
+            message.what = 7;
+            handler.sendEmptyMessage(7);
+            System.out.println("Jsons parse error !");
+            e.printStackTrace();
         }
     }
 }

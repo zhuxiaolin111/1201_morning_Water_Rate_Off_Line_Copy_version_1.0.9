@@ -67,7 +67,7 @@ public class Near_User_JiaoFei_list extends Fragment {
             //设置list
             Map<String, String> item = new HashMap<>();
             if (mJiekou5_model.getData() != null) {
-                item.put("paydate", First_Page.stampToDate(String.valueOf(mJiekou5_model.getData().get(i).getPaydate())));
+                item.put("paydate", First_Page.stampToDate(String.valueOf(mJiekou5_model.getData().get(i).getPayDate())));
                 item.put("payment", String.valueOf(mJiekou5_model.getData().get(i).getPayment()));
                 listItem.add(item);
             }

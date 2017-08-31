@@ -139,6 +139,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                 if (mWeichao == null) {
                     mWeichao = new User_Detail_Info_2_Fragment_1WeiChao();
                     weichao.setTextColor(getResources().getColor(R.color.menu_click));
+                 //   weichao.setBackgroundColor(getResources().getColor(R.color.green));
                     yichao.setTextColor(getResources().getColor(R.color.defult));
                     quanbu.setTextColor(getResources().getColor(R.color.defult));
                     qianfei.setTextColor(getResources().getColor(R.color.defult));
@@ -149,6 +150,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                 }
 
                 weichao.setTextColor(getResources().getColor(R.color.menu_click));
+               // weichao.setBackgroundColor(getResources().getColor(R.color.green));
                 yichao.setTextColor(getResources().getColor(R.color.defult));
                 quanbu.setTextColor(getResources().getColor(R.color.defult));
                 qianfei.setTextColor(getResources().getColor(R.color.defult));
@@ -164,6 +166,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                     mYichao = new User_Detail_Info_2_Fragment_2YiChao();
                     weichao.setTextColor(getResources().getColor(R.color.defult));
                     yichao.setTextColor(getResources().getColor(R.color.menu_click));
+                   // yichao.setBackgroundColor(getResources().getColor(R.color.green));
                     quanbu.setTextColor(getResources().getColor(R.color.defult));
                     qianfei.setTextColor(getResources().getColor(R.color.defult));
                     view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
@@ -174,6 +177,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                 ft.replace(R.id.xuanzechaobiaofanwei, mYichao);
                 weichao.setTextColor(getResources().getColor(R.color.defult));
                 yichao.setTextColor(getResources().getColor(R.color.menu_click));
+               // yichao.setBackgroundColor(getResources().getColor(R.color.green));
                 quanbu.setTextColor(getResources().getColor(R.color.defult));
                 qianfei.setTextColor(getResources().getColor(R.color.defult));
                 view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
@@ -190,6 +194,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                     yichao.setTextColor(getResources().getColor(R.color.defult));
                     quanbu.setTextColor(getResources().getColor(R.color.defult));
                     qianfei.setTextColor(getResources().getColor(R.color.menu_click));
+                 //   qianfei.setBackgroundColor(getResources().getColor(R.color.green));
                     view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
                     view_yichao.setBackgroundColor(getResources().getColor(R.color.defult));
                     view_quanbu.setBackgroundColor(getResources().getColor(R.color.defult));
@@ -199,6 +204,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                 yichao.setTextColor(getResources().getColor(R.color.defult));
                 quanbu.setTextColor(getResources().getColor(R.color.defult));
                 qianfei.setTextColor(getResources().getColor(R.color.menu_click));
+               // qianfei.setBackgroundColor(getResources().getColor(R.color.green));
                 view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
                 view_yichao.setBackgroundColor(getResources().getColor(R.color.defult));
                 view_quanbu.setBackgroundColor(getResources().getColor(R.color.defult));
@@ -212,6 +218,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                     mQuanbu = new User_Detail_Info_2_Fragment_3QuanBu();
                     weichao.setTextColor(getResources().getColor(R.color.defult));
                     yichao.setTextColor(getResources().getColor(R.color.defult));
+                //    quanbu.setBackgroundColor(getResources().getColor(R.color.green));
                     quanbu.setTextColor(getResources().getColor(R.color.menu_click));
                     qianfei.setTextColor(getResources().getColor(R.color.defult));
                     view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
@@ -223,6 +230,7 @@ public class User_Detail_info_1_Page extends AppCompatActivity implements View.O
                 weichao.setTextColor(getResources().getColor(R.color.defult));
                 yichao.setTextColor(getResources().getColor(R.color.defult));
                 quanbu.setTextColor(getResources().getColor(R.color.menu_click));
+             //   quanbu.setBackgroundColor(getResources().getColor(R.color.green));
                 qianfei.setTextColor(getResources().getColor(R.color.defult));
                 view_weichao.setBackgroundColor(getResources().getColor(R.color.defult));
                 view_yichao.setBackgroundColor(getResources().getColor(R.color.defult));

@@ -9,32 +9,34 @@ import java.util.List;
 public class jiekou4_model {
 
 
-        private int result;
-        private List<Data> data;
-        private String errtext;
+    private int result;
+    private List<Data> data;
+    private String errtext;
 
 
-        public void setResult(int result) {
-            this.result = result;
-        }
-        public int getResult() {
-            return result;
-        }
+    public void setResult(int result) {
+        this.result = result;
+    }
 
-        public void setData(List<Data> data) {
-            this.data = data;
-        }
-        public List<Data> getData() {
-            return data;
-        }
+    public int getResult() {
+        return result;
+    }
 
-        public void setErrtext(String errtext) {
-            this.errtext = errtext;
-        }
-        public String getErrtext() {
-            return errtext;
-        }
+    public void setData(List<Data> data) {
+        this.data = data;
+    }
 
+    public List<Data> getData() {
+        return data;
+    }
+
+    public void setErrtext(String errtext) {
+        this.errtext = errtext;
+    }
+
+    public String getErrtext() {
+        return errtext;
+    }
 
 
     public static class Data {
@@ -51,6 +53,7 @@ public class jiekou4_model {
         public void setTotalfee(double totalfee) {
             this.totalfee = totalfee;
         }
+
         public double getTotalfee() {
             return totalfee;
         }
@@ -58,6 +61,7 @@ public class jiekou4_model {
         public void setWaterused(int waterused) {
             this.waterused = waterused;
         }
+
         public int getWaterused() {
             return waterused;
         }
@@ -65,6 +69,7 @@ public class jiekou4_model {
         public void setWaterfee(double waterfee) {
             this.waterfee = waterfee;
         }
+
         public double getWaterfee() {
             return waterfee;
         }
@@ -72,6 +77,7 @@ public class jiekou4_model {
         public void setBillid(String billid) {
             this.billid = billid;
         }
+
         public String getBillid() {
             return billid;
         }
@@ -79,6 +85,7 @@ public class jiekou4_model {
         public void setBillcycle(String billcycle) {
             this.billcycle = billcycle;
         }
+
         public String getBillcycle() {
             return billcycle;
         }
@@ -86,6 +93,7 @@ public class jiekou4_model {
         public void setReaddate(String readdate) {
             this.readdate = readdate;
         }
+
         public String getReaddate() {
             return readdate;
         }
@@ -93,6 +101,7 @@ public class jiekou4_model {
         public void setDrainfee(double drainfee) {
             this.drainfee = drainfee;
         }
+
         public double getDrainfee() {
             return drainfee;
         }

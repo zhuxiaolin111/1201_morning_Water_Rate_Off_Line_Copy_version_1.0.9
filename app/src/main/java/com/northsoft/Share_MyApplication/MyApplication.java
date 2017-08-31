@@ -43,7 +43,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-      /*  CrashHandler.getInstance().init(this); // 一定要先初始化
+
+       /* CrashHandler.getInstance().init(this); // 一定要先初始化
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance());*/
     }
 

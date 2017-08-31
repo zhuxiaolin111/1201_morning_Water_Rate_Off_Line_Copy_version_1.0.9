@@ -130,8 +130,6 @@ public class UpdateManager {
                         .post(formbody)
                         .build();
                 okhttp3.Call call = mOkHttpClient.newCall(request);
-
-
                 Response response = null;
                 try {
                     response = call.execute();
@@ -151,7 +149,7 @@ public class UpdateManager {
                        Double serviceCode = Double.valueOf(mHashMap.get("version"));
                         String StrVersionCode = String.valueOf(versionCode);
                        Double StrVersionName = Double.valueOf(versionName);
-                        if (serviceCode.compareTo(StrVersionName) >= 0) {
+                        if (serviceCode.compareTo(StrVersionName) > 1) {
                             flag = true;
                             mHandler.sendEmptyMessage(3);
                         }
@@ -312,7 +310,8 @@ public class UpdateManager {
                     // 创建输入流
                     InputStream is = conn.getInputStream();
 
-                    File file = new File(mSavePath);
+                    File file = new File
+                            (mSavePath);
                     // 判断文件目录是否存在
                     if (!file.exists()) {
                         file.mkdir();
@@ -326,6 +325,7 @@ public class UpdateManager {
                     do {
                         int numread = is.read(buf);
                         count += numread;
+
                         // 计算进度条位置
                         progress = (int) (((float) count / length) * 100);
 
